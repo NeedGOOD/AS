@@ -20,12 +20,12 @@ int main() {
     for (int j = 0; j < N; ++j) {
         int min = j;
 
-        for (int i = j; i < N; ++i) {
-            if (a[min] > a[i]) {
-                min = i;
+        for (int i = j; i < N; ++i) {   // Пошук мінімального елемента масиву
+            if (a[min] > a[i]) {    // Якщо елемент мінімальний 
+                min = i;    // Мінімальний індекс
             }
         }
-        std::swap(a[min], a[j]);
+        std::swap(a[min], a[j]);    // Заміна мінімального індекса
     }
 
     for (int i = 0; i < N; ++i) {
