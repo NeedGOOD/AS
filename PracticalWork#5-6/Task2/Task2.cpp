@@ -1,15 +1,25 @@
 #include <iostream>
 
 int main() {
+    srand(time(0));
     int Key;
 
     std::cout << "Key: ";
     std::cin >> Key;    // Задаю число, яке буду шукати
     std::cout << '\n';
 
-    const int N = 10;   // Розмір масиву
+    const int N = 6;   // Розмір масиву
 
-    int a[N] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};  // Масив чисел
+    int a[N];  // Масив чисел
+
+    for (int i = 0; i < N; ++i) {
+        a[i] = rand() % (10 - -10) + -10;   // Рандомні числа
+    }
+
+    for (int i = 0; i < N; ++i) {
+        std::cout << "a[" << i << "] = " << a[i] << '\n';   // Виведення чисел
+    }
+    std::cout << '\n';
 
     a[N] = Key; // Проблема: вихід за границю масиву
 

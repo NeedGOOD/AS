@@ -1,16 +1,37 @@
 #include <iostream>
 
 int main() {
+    srand(time(0));
     int Key;
 
     std::cout << "Key: ";
     std::cin >> Key;    // Задаю число, яке буду шукати
     std::cout << '\n';
 
-    const int N = 10;   // Розмір масиву
+    const int N = 6;   // Розмір масиву
 
-    int a[N] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};  // Масив чисел
+    int a[N];  // Масив чисел
     // Масив має бути відсортованим
+
+    for (int i = 0; i < N; ++i) {
+        a[i] = rand() % (10 - -10) + -10;   // Рандомні числа
+    }
+
+    for (int j = 0; j < N; ++j) {
+        int min = j;
+
+        for (int i = j; i < N; ++i) {
+            if (a[min] > a[i]) {
+                min = i;
+            }
+        }
+        std::swap(a[min], a[j]);
+    }
+
+    for (int i = 0; i < N; ++i) {
+        std::cout << "a[" << i << "] = " << a[i] << '\n';   // Виведення чисел
+    }
+    std::cout << '\n';
 
     int L = 0;          // Початок масиву
     
